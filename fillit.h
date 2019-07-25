@@ -6,7 +6,7 @@
 /*   By: bbekmama <bbekmama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 11:06:38 by bbekmama          #+#    #+#             */
-/*   Updated: 2019/07/24 16:16:07 by bbekmama         ###   ########.fr       */
+/*   Updated: 2019/07/24 18:57:04 by bbekmama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ typedef struct		s_tetr
 void		ft_error(int code);
 t_tetr		*reader(int fd);
 void		ft_print(t_tetr *head);
-
+void		val(t_tetr *head);
 #endif
