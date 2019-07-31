@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbekmama <bbekmama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 17:23:04 by bbekmama          #+#    #+#             */
-/*   Updated: 2019/07/24 20:22:35 by bbekmama         ###   ########.fr       */
+/*   Updated: 2019/07/24 23:16:32 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ static int	hashcheck(char *str, int i)
 		n += (str[i - 1] == '#') ? 1 : 0;
 	if (!(i % 4 == 3)) // ne prover +1
 		n += (str[i + 1] == '#') ? 1 : 0;
-	if (!(i < 5)) // ne prover nazad
+	if (!(i < 4)) // ne prover nazad
 		n += (str[i - 4] == '#') ? 1 : 0;
 	if (!(i > 11)) // ne prover vpered
 		n += (str[i + 4] == '#') ? 1 : 0;
-	return (n);
+	return (n);	
 }
 
 void		validate(t_tetr *list) //head is 1 tetramino which is written as a single string

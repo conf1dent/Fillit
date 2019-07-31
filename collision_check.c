@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.c                                         :+:      :+:    :+:   */
+/*   collision_check.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/24 15:37:02 by bbekmama          #+#    #+#             */
-/*   Updated: 2019/07/24 21:26:50 by hvasylie         ###   ########.fr       */
+/*   Created: 2019/07/24 21:40:22 by hvasylie          #+#    #+#             */
+/*   Updated: 2019/07/25 00:21:54 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_print(t_tetr *head)
+int		collision_check(t_tetr *head, t_tetr *list)
 {
-	int line;
-	int i;
+	char	*str;
+	char	*str2;
+	int		i;
 
-	line = 0;
-	while (head != NULL)
+	str2 = list->str;
+	while (head != list)
 	{
+		str = head->str;
 		i = 0;
-		while ((head->str[i]))
+		while (str2[i])
 		{
-			if (head->str[i] == '#')
-				ft_putchar('A' + head->num);
-			else
-				ft_putchar('.');
-			if (i % 4 == 3)
-				ft_putstr("\n");
+			if (str[i] == '#' && str2[i] == '#')
+				return (0);
 			i++;
 		}
-		ft_putstr("\n");
 		head = head->next;
 	}
+	return (1);
 }

@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.c                                         :+:      :+:    :+:   */
+/*   get_size.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/24 15:37:02 by bbekmama          #+#    #+#             */
-/*   Updated: 2019/07/24 21:26:50 by hvasylie         ###   ########.fr       */
+/*   Created: 2019/07/30 21:05:38 by hvasylie          #+#    #+#             */
+/*   Updated: 2019/07/30 21:17:12 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_print(t_tetr *head)
+static int tetrimino_count(t_tetr *tetrimino)
 {
-	int line;
 	int i;
 
-	line = 0;
-	while (head != NULL)
+	i = 0;
+	while(tetrimino != NULL)
 	{
-		i = 0;
-		while ((head->str[i]))
-		{
-			if (head->str[i] == '#')
-				ft_putchar('A' + head->num);
-			else
-				ft_putchar('.');
-			if (i % 4 == 3)
-				ft_putstr("\n");
-			i++;
-		}
-		ft_putstr("\n");
-		head = head->next;
+		tetrimino = tetrimino->next;
+		i++;
 	}
+	return(i);
+}
+
+int get_size(t_tetr *tetrimino)
+{
+	int size;
+	int len;
+
+	size = 1;
+	len = tetrimino_count(tetrimino);
+	while((size * size) < (len * 4))
+	{
+		size++;
+	}
+	return(size);
 }
