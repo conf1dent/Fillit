@@ -6,7 +6,7 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 14:21:22 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/08/01 17:58:55 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/08/01 18:00:11 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ static int		check_top(t_tetr *tetrimino)
 	return (0);
 }
 
-// nado sdelat
 int				move_left(t_tetr *tetrimino)
 {
 	int		width;

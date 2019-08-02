@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   move_right_bottom.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 19:44:56 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/08/01 17:36:29 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/08/01 22:26:59 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static int		check_botom(t_tetr *tetrimino)
 	return (0);
 }
 
-int				move(t_tetr *tetrimino)
+int				move_right_bottom(t_tetr *tetrimino)
 {
 	int		width;
 	int		len;
