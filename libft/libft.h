@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbekmama <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 14:15:09 by bbekmama          #+#    #+#             */
-/*   Updated: 2019/05/25 22:12:53 by bbekmama         ###   ########.fr       */
+/*   Updated: 2019/08/05 23:14:42 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h>
+# define BUFF_SIZE 10
+# include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <stdio.h>
+# include "./libft/libft.h"
 
 typedef struct		s_list
 {
@@ -24,6 +30,14 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct	s_listok
+{
+	char			*rest;
+	struct s_listok	*next;
+	int				fd;
+}				t_listok;
+
+int					get_next_line(const int fd, char **line);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *restrict dst, const void\
 					*restrict src, size_t n);

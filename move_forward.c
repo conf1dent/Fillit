@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_right_bottom.c                                :+:      :+:    :+:   */
+/*   move_forward.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 19:44:56 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/08/01 22:26:59 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/08/05 22:35:12 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,29 @@
 static int		get_width(t_tetr *tetrimino)
 {
 	int	i;
-	int	len;
 	int	size;
+	int width;
+	int index;
 
-	len = ft_strlen(tetrimino->str) - 1;
-	i = 0; //we will need to input size through the struct (4 in basic case)
+	width = 0;
+	i = 0;
 	while (i < tetrimino->size)
 	{
 		size = tetrimino->size;
+		index = i;
 		while (size != 0)
 		{
-			if (tetrimino->str[i] == '#')
-				return (1);
-			i += tetrimino->size;
+			if (tetrimino->str[index] == '#')
+			{
+				width++;
+				break ;
+			}
+			index += tetrimino->size;
 			size--;
 		}
 		i++;
 	}
-	return (0);
+	return (width);
 }
 
 static int		check_right(t_tetr *tetrimino)
@@ -66,7 +71,7 @@ static int		check_botom(t_tetr *tetrimino)
 	return (0);
 }
 
-int				move_right_bottom(t_tetr *tetrimino)
+int				move_forward(t_tetr *tetrimino)
 {
 	int		width;
 	int		len;
@@ -79,15 +84,39 @@ int				move_right_bottom(t_tetr *tetrimino)
 		while (len >= 0)
 		{
 			if (tetrimino->str[len] == '#')
-				ft_swap(tetrimino->str[len], tetrimino->str[len + width]);
+				ft_swap_char(&tetrimino->str[len], &tetrimino->str[len + width]);
 			len--;
 		}
 	else
 		while (len >= 0)
 		{
 			if (tetrimino->str[len] == '#')
-				ft_swap(tetrimino->str[len], tetrimino->str[len + 1]);
+				ft_swap_char(&tetrimino->str[len], &tetrimino->str[len + 1]);
 			len--;
 		}
 	return (0);
 }
+
+// int main()
+// {
+// 	t_tetr tmp;
+
+// 	tmp.str = ft_strdup("#...#...##......");
+// 	tmp.size = 4;
+// 	tmp.num = 1;
+// 	int i = 0;
+// 	int width = get_width(&tmp);
+// 	ft_putnbr(width);
+// 	move_forward(&tmp);
+// 	move_forward(&tmp);
+// 	move_forward(&tmp);
+// 	// while (!move_forward(&tmp))
+// 	// 	;
+// 	while (tmp.str[i])
+// 	{
+// 		if (i % 4 == 0)
+// 			ft_putchar('\n');
+// 		ft_putchar(tmp.str[i]);
+// 		i++;
+// 	}
+// }

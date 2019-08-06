@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   put_size_in_tetr.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/24 15:25:50 by bbekmama          #+#    #+#             */
-/*   Updated: 2019/08/05 17:03:30 by hvasylie         ###   ########.fr       */
+/*   Created: 2019/08/05 18:07:51 by hvasylie          #+#    #+#             */
+/*   Updated: 2019/08/05 18:09:01 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_error(int code)
+void		put_size_in_tetr(t_tetr *head, int size)
 {
-	if (code == 1)
-		ft_putstr("file is corupted\n");
-	if (code == 2)
-		ft_putstr("usage: fillit file.txt\n");
-	if (code == 3)
-		ft_putstr("invalid tetramino\n");
-	exit(1); // exits from the whole program
+	while (head)
+	{
+		head->size = size;
+		head = head->next;
+	}
 }

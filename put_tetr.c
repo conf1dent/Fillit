@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.c                                         :+:      :+:    :+:   */
+/*   put_tetr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/24 15:37:02 by bbekmama          #+#    #+#             */
-/*   Updated: 2019/08/05 23:06:41 by hvasylie         ###   ########.fr       */
+/*   Created: 2019/08/05 23:00:08 by hvasylie          #+#    #+#             */
+/*   Updated: 2019/08/05 23:04:46 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static void		put_tetr(t_tetr *head)
 
 static void		fill_haed(t_tetr *head)
 {
-	t_tetr	*tmp;
-	int		i;
+	t_tetr *tmp;
+	int i;
 
 	tmp = head->next;
 	put_tetr(head);
@@ -47,20 +47,4 @@ static void		fill_haed(t_tetr *head)
 		}
 		tmp = tmp->next;
 	}
-}
-
-void	ft_print(t_tetr *head)
-{
-	int i;
-
-	i = 0;
-	fill_haed(head);
-	while ((head->str[i]))
-	{
-		ft_putchar(head->str[i]);
-		if (i % head->size == head->size - 1)
-			ft_putstr("\n");
-		i++;
-	}
-	ft_putstr("\n");
 }

@@ -6,41 +6,20 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 14:21:22 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/08/01 18:00:11 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/08/05 22:43:27 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int		get_width(t_tetr *tetrimino)
-{
-	int	i;
-	int	len;
-	int	size;
-
-	len = ft_strlen(tetrimino->str) - 1;
-	i = 0; //we will need to input size through the struct (4 in basic case)
-	while(i < tetrimino->size)
-	{
-		size = tetrimino->size;
-		while (size != 0)
-		{
-			if (tetrimino->str[i] == '#')
-				return (1);
-			i += tetrimino->size;
-			size--;
-		}
-		i++;
-	}
-	return (0);
-}
-
 static int		check_left(t_tetr *tetrimino)
 {
 	int i;
+	int size;
 
-	i = tetrimino->size + 1 - tetrimino->size; //we will need to input size through the struct (4 in basic case)
-	while (tetrimino->str[i])
+	size = tetrimino->size * tetrimino->size;
+	i = 0;
+	while (i < size)
 	{
 		if (tetrimino->str[i] == '#')
 			return (1);
@@ -51,44 +30,63 @@ static int		check_left(t_tetr *tetrimino)
 
 static int		check_top(t_tetr *tetrimino)
 {
-	int len;
-	int size;
+	int i;
 
-	size = tetrimino->size; // we'll need to pass input size through the struct (4 in basic case)
-	len = 0;
-	while(len < size) // because size starts from 1, len from 0
+	i = 0;
+	while (i < tetrimino->size)
 	{
-		if (tetrimino->str[len] == '#')
+		if (tetrimino->str[i] == '#')
 			return (1);
-		len++;
+		i++;
 	}
 	return (0);
 }
 
 int				move_left(t_tetr *tetrimino)
 {
-	int		width;
 	int		len;
 	int		i;
 
 	i = 0;
 	len = ft_strlen(tetrimino->str);
-	width = get_width(tetrimino);
 	if (check_left(tetrimino) && check_top(tetrimino))
 		return (1);
 	if (check_left(tetrimino))
 		while (i < len)
 		{
 			if (tetrimino->str[i] == '#')
-				ft_swap(tetrimino->str[i], tetrimino->str[i - width]);
+				ft_swap_char(&tetrimino->str[i], &tetrimino->str[i - tetrimino->size]);
 			i++;
 		}
 	else
 		while (len > i)
 		{
 			if (tetrimino->str[i] == '#')
-				ft_swap(tetrimino->str[i], tetrimino->str[i - 1]);
+				ft_swap_char(&tetrimino->str[i], &tetrimino->str[i - 1]);
 			i++;
 		}
 	return (0);
 }
+
+void		move_left_top(t_tetr *head)
+{
+	while (head)
+	{
+		while (!move_left(head))
+			;
+		head = head->next;
+	}
+}
+
+// int main()
+// {
+// 	t_tetr new;
+
+// 	new.str = ft_strdup(".......#...#..##");
+// 	new.size = 4;
+// 	new.next = NULL;
+// 	// ft_putnbr(check_top(&new));
+// 	// ft_putnbr(check_left(&new));
+// 	move_left_top(&new);
+// 	ft_print(&new);
+// }

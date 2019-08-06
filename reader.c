@@ -6,7 +6,7 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 14:42:05 by bbekmama          #+#    #+#             */
-/*   Updated: 2019/07/24 21:07:38 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/08/05 21:22:07 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ t_tetr		*new_list(t_tetr *back, int num)
 
 	new =(t_tetr *)malloc(sizeof(t_tetr)); // malloc for the struct
 	new->num = num;
+	new->size = 4;
 	new->back = back; //we put *back (from prototype) to back in the struct
 	new->str = ft_strnew(16); // the same as: new->str = (char *)malloc(sizeof(char) * 17);
 	new->next = NULL; // if a new tetramino has next == NULL it is the last one

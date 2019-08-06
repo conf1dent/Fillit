@@ -6,7 +6,7 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 21:40:22 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/07/25 00:21:54 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/08/05 17:08:58 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int		collision_check(t_tetr *head, t_tetr *list)
 		while (str2[i])
 		{
 			if (str[i] == '#' && str2[i] == '#')
-				return (0);
+				return (1);
 			i++;
 		}
 		head = head->next;
 	}
-	return (1);
+	return (0);
 }
