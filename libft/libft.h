@@ -6,7 +6,7 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 14:15:09 by bbekmama          #+#    #+#             */
-/*   Updated: 2019/08/05 23:14:42 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/08/05 23:21:17 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdio.h>
-# include "./libft/libft.h"
 
 typedef struct		s_list
 {

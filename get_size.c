@@ -6,7 +6,7 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 21:05:38 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/08/05 18:14:28 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/08/05 23:23:23 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int			get_size(t_tetr *tetrimino)
 	int size;
 	int len;
 
-	size = 4; // !!!need to correct!!!
+	size = 2; // !!!need to correct!!!
 	len = tetrimino_count(tetrimino);
 	while ((size * size) < (len * 4))
 	{

@@ -6,7 +6,7 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 15:37:02 by bbekmama          #+#    #+#             */
-/*   Updated: 2019/08/05 23:06:41 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/08/05 23:25:32 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,4 @@ void	ft_print(t_tetr *head)
 			ft_putstr("\n");
 		i++;
 	}
-	ft_putstr("\n");
 }

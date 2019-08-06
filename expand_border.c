@@ -6,11 +6,20 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 18:37:12 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/08/05 22:58:34 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/08/05 23:17:02 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+static void		put_size_in_tetr(t_tetr *head, int size)
+{
+	while (head)
+	{
+		head->size = size;
+		head = head->next;
+	}
+}
 
 static void		fill_dot(char *str, int size)
 {
@@ -42,7 +51,7 @@ void			expand_border(t_tetr *tetrimino, int size)
 		i++;
 		j++;
 	}
-	//free(tetrimino->str);
+	free(tetrimino->str);
 	tetrimino->str = str;
 }
 

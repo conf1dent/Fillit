@@ -6,7 +6,7 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 11:06:38 by bbekmama          #+#    #+#             */
-/*   Updated: 2019/08/05 23:15:05 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/08/05 23:22:51 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int 		collision_check(t_tetr *head, t_tetr *list);
 int			move_forward(t_tetr *tetrimino);
 void		move_left_top(t_tetr *head);
 void		ft_swap_char(char *a, char *b);
-void		put_size_in_tetr(t_tetr *head, int size);
 int			get_size(t_tetr *tetrimino);
 void		expand_all(t_tetr *head, int size);
 

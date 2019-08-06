@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbekmama <bbekmama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 16:35:29 by bbekmama          #+#    #+#             */
-/*   Updated: 2019/07/24 15:49:06 by bbekmama         ###   ########.fr       */
+/*   Updated: 2019/08/05 23:22:15 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 static char		*paste_rest(char **line, char *rest)
 {
