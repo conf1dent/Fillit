@@ -1,40 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_size.c                                         :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/30 21:05:38 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/08/05 23:23:23 by hvasylie         ###   ########.fr       */
+/*   Created: 2019/07/24 15:25:50 by bbekmama          #+#    #+#             */
+/*   Updated: 2019/08/07 21:22:03 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int	tetrimino_count(t_tetr *tetrimino)
+void	ft_error(int code)
 {
-	int i;
-
-	i = 0;
-	while (tetrimino != NULL)
-	{
-		tetrimino = tetrimino->next;
-		i++;
-	}
-	return (i);
-}
-
-int			get_size(t_tetr *tetrimino)
-{
-	int size;
-	int len;
-
-	size = 2; // !!!need to correct!!!
-	len = tetrimino_count(tetrimino);
-	while ((size * size) < (len * 4))
-	{
-		size++;
-	}
-	return (size);
+	if (code == 1)
+		ft_putstr("error\n");
+	if (code == 2)
+		ft_putstr("usage: fillit file.txt\n");
+	if (code == 3)
+		ft_putstr("error\n");
+	exit(1);
 }

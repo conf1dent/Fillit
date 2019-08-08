@@ -1,34 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.c                                           :+:      :+:    :+:   */
+/*   backtracking.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/19 11:08:20 by bbekmama          #+#    #+#             */
-/*   Updated: 2019/08/05 22:50:46 by hvasylie         ###   ########.fr       */
+/*   Created: 2019/08/06 00:38:52 by hvasylie          #+#    #+#             */
+/*   Updated: 2019/08/07 18:38:41 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
-int main(int ac, char **av)
+t_tetr		backtracking(t_tetr *head)
 {
-	t_tetr	*head;
-	t_tetr	*tmp;
-	int		fd;
-	int		size;
+	t_tetr *tmp;
 
-	if (ac < 2)
-		ft_error(2);
-	fd = open(av[1], O_RDONLY, 0);
-	head = reader(fd);
-	close(fd);
-	val(head);
-	size = get_size(head);
-	expand_all(head, size);
-	move_left_top(head);
 	tmp = head;
 	while (tmp)
 	{
@@ -39,8 +26,8 @@ int main(int ac, char **av)
 				{
 					if (tmp->num == 0)
 					{
-						expand_all(head, tmp->size + 1);
 						move_left_top(head);
+						expand_all(head, tmp->size + 1);
 						break ;
 					}
 					tmp = tmp->back;
@@ -49,6 +36,5 @@ int main(int ac, char **av)
 			}
 		tmp = tmp->next;
 	}
-	ft_print(head);
-	return (0);
+	return (*head);
 }

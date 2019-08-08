@@ -6,7 +6,7 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 14:42:05 by bbekmama          #+#    #+#             */
-/*   Updated: 2019/08/05 21:22:07 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/08/07 22:24:46 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,21 @@ t_tetr		*new_list(t_tetr *back, int num)
 {
 	t_tetr	*new;
 
-	new =(t_tetr *)malloc(sizeof(t_tetr)); // malloc for the struct
+	new = (t_tetr *)malloc(sizeof(t_tetr));
 	new->num = num;
 	new->size = 4;
-	new->back = back; //we put *back (from prototype) to back in the struct
-	new->str = ft_strnew(16); // the same as: new->str = (char *)malloc(sizeof(char) * 17);
-	new->next = NULL; // if a new tetramino has next == NULL it is the last one
+	new->back = back;
+	new->str = ft_strnew(16);
+	new->next = NULL;
 	return (new);
+}
+
+void		str_cat(t_tetr *tetrimino, char *buf)
+{
+	if (ft_strlen(buf) != 4)
+		ft_error(1);
+	ft_strcat(tetrimino->str, buf);
+	ft_strdel(&buf);
 }
 
 t_tetr		*reader(int fd)
@@ -35,24 +43,21 @@ t_tetr		*reader(int fd)
 
 	line_num = 0;
 	num = 0;
-	head = new_list(NULL, num); // num is for counting and differentiating tetraminos
+	head = new_list(NULL, num);
 	tmp = head;
 	while (get_next_line(fd, &buf))
 	{
-		if (line_num++ % 5 == 4) // check existence of empty lne
+		if (line_num++ % 5 == 4)
 		{
-			tmp->next = new_list(tmp, ++num); //malloc for new tetramino, we put tmp for back
-			tmp = tmp->next; //switch to the new tetramino
+			tmp->next = new_list(tmp, ++num);
+			tmp = tmp->next;
 			if (ft_strlen(buf) != 0)
 				ft_error(1);
-			continue ; //does not go down
+			ft_strdel(&buf);
+			continue ;
 		}
-		if (ft_strlen(buf) != 4)
-			ft_error(1);
-		ft_strcat(tmp->str, buf); //add rows of tetramino
-		ft_strdel(&buf); //delete buffer before reading a new row		
+		str_cat(tmp, buf);
 	}
+	ft_strdel(&buf);
 	return (head);
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 18:37:12 by hvasylie          #+#    #+#             */
-/*   Updated: 2019/08/05 23:17:02 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/08/07 22:27:58 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void			expand_border(t_tetr *tetrimino, int size)
 	i = 0;
 	j = 0;
 	dot_add = size - tetrimino->size;
-	str = ft_strnew(size * size - 1);
+	str = ft_strnew(size * size);
 	fill_dot(str, size * size);
 	while (tetrimino->str[i])
 	{
@@ -55,7 +55,7 @@ void			expand_border(t_tetr *tetrimino, int size)
 	tetrimino->str = str;
 }
 
-void	expand_all(t_tetr *head, int size)
+void			expand_all(t_tetr *head, int size)
 {
 	t_tetr *tmp;
 
@@ -69,21 +69,3 @@ void	expand_all(t_tetr *head, int size)
 	}
 	put_size_in_tetr(head, size);
 }
-
-// int main()
-// {
-// 	t_tetr new;
-
-// 	new.str = ft_strdup("...#...#...#...#");
-// 	//new.str = ft_strdup("####............");
-// 	new.size = 4;
-// 	expand_border(&new, 7);
-// 	int i;
-// 	while (new.str[i])
-// 	{
-// 		if (i % 7 == 0)
-// 			ft_putchar('\n');
-// 		ft_putchar(new.str[i]);
-// 		i++;
-// 	}
-// }

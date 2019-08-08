@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_swap_char.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/24 15:25:50 by bbekmama          #+#    #+#             */
-/*   Updated: 2019/08/05 17:03:30 by hvasylie         ###   ########.fr       */
+/*   Created: 2019/08/05 17:27:38 by hvasylie          #+#    #+#             */
+/*   Updated: 2019/08/05 23:45:28 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-void	ft_error(int code)
+void	ft_swap_char(char *a, char *b)
 {
-	if (code == 1)
-		ft_putstr("file is corupted\n");
-	if (code == 2)
-		ft_putstr("usage: fillit file.txt\n");
-	if (code == 3)
-		ft_putstr("invalid tetramino\n");
-	exit(1); // exits from the whole program
+	char	tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

@@ -6,7 +6,7 @@
 /*   By: hvasylie <hvasylie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 14:15:09 by bbekmama          #+#    #+#             */
-/*   Updated: 2019/08/05 23:21:17 by hvasylie         ###   ########.fr       */
+/*   Updated: 2019/08/07 21:33:51 by hvasylie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-typedef struct	s_listok
+typedef struct		s_listok
 {
 	char			*rest;
 	struct s_listok	*next;
 	int				fd;
-}				t_listok;
+}					t_listok;
 
 int					get_next_line(const int fd, char **line);
 void				ft_bzero(void *s, size_t n);
@@ -105,6 +105,7 @@ int					ft_digits(int n);
 int					ft_intlen(long c, int len);
 void				ft_swap(int *a, int *b);
 unsigned char		ft_swap_bits(unsigned char octet);
+void				ft_swap_char(char *a, char *b);
 void				*ft_memdup(void const *src, size_t len);
 
 #endif
